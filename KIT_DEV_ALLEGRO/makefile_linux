@@ -1,0 +1,12 @@
+CC = gcc
+FLAGS = -std=c99 -O3
+PATH_ALLEGRO=/usr/lib/x86_64-linux-gnu
+LIB_ALLEGRO=-lallegro -lallegro_acodec -lallegro_audio -lallegro_color -lallegro_dialog -lallegro_font -lallegro_image -lallegro_primitives -lallegro_ttf
+
+all: game
+	
+game: game.o
+	$(CC) $(FLAGS) -o game game.o -L $(PATH_ALLEGRO) $(LIB_ALLEGRO)  -lm
+
+game.o: game.c
+	$(CC) $(FLAGS) -c game.c 	
